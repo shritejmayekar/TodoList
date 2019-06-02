@@ -16,6 +16,8 @@ def log(request):
 class TodoListViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+    http_method_names = ['get', 'post', 'patch']
+
 
     def list(self, request, *args, **kwargs):
         queryset = self.queryset.filter(user=request.user)
@@ -26,3 +28,6 @@ class TodoListViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+  
+
+
