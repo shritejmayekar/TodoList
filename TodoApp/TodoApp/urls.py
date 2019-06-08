@@ -17,16 +17,16 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from TodoAuth.views import UserViewset
-from TodoList.views import TodoListViewSet
+from TodoList.views import TodoNoteViewSet
 from rest_framework import routers
 from TodoList.views import log
 router = routers.DefaultRouter()
-router.register(r'api/users',UserViewset)
-router.register(r'api/todos',TodoListViewSet)
+router.register(r'users',UserViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'',include(router.urls)),
+    # path(r'',index),
+    path(r'api/',include('TodoList.urls')),
     path(r'auth/', include('TodoAuth.urls')),
     path(r'log/',log)
 ]
