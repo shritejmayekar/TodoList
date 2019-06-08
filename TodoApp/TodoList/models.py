@@ -13,7 +13,7 @@ class TodoNote(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{} - {}".format(self.name,self.content)
+        return "{} - {}".format(self.title)
 
     class Meta:
         ordering = ["-created_at"]
@@ -37,3 +37,8 @@ class TodoList(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return "{} - {}".format(self.task)
+
+    class Meta:
+        ordering = ["-created_at"]
