@@ -4,5 +4,5 @@ To Run app cd TodoList make new virtualenv as python3 -m venv virtualenv
 activate virtual environment as source virtualenv\bin\activate
 set up .env file for database configuration
 run it as source ~/.env
-pip install -r requirements
+pip install -r requirements.txt
 run app as python manage.py runserver
